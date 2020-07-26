@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dice_Bot.Views.ItemDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Padding="15" ColumnSpacing="20" Grid.Row="0" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Profit" FontAttributes="Bold" VerticalTextAlignment="End" LineBreakMode="NoWrap" Grid.Row="0" Grid.Column="0"/>
+                <Label Text=":" VerticalTextAlignment="End" LineBreakMode="NoWrap" Grid.Row="0" Grid.Column="1"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                    <Label Text="{Binding Item.Profit}" TextColor="Lime" IsVisible="{Binding Item.IsWin}"/>
+                    <Label Text="{Binding Item.Profit}" TextColor="Red" IsVisible="{Binding Item.IsLose}"/>
+                    <Label Text="{Binding Item.cBalance}"/>
+                </StackLayout>
+
+                <Label Text="Amount" FontAttributes="Bold" LineBreakMode="NoWrap" Grid.Row="1" Grid.Column="0"/>
+                <Label Text=":" LineBreakMode="NoWrap" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="{Binding Item.Amount}" Grid.Row="1" Grid.Column="2"/>
+
+                <Label Text="Chance" FontAttributes="Bold" LineBreakMode="NoWrap" Grid.Row="2" Grid.Column="0"/>
+                <Label Text=":" LineBreakMode="NoWrap" Grid.Row="2" Grid.Column="1"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                    <Label Text="{Binding Item.Chance}" FontSize="Small"/>
+                    <Label Text="on" FontSize="Small"/>
+                    <Label Text="{Binding Item.High}" FontSize="Small"/>
+                </StackLayout>
+
+                <Label Text="Roll" FontAttributes="Bold" LineBreakMode="NoWrap" Grid.Row="3" Grid.Column="0"/>
+                <Label Text=":" LineBreakMode="NoWrap" Grid.Row="3" Grid.Column="1"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="2">
+                    <Label Text="{Binding Item.Roll}" FontSize="Small"/>
+                    <Label Text="{Binding Item.Win}" FontSize="Small"/>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="Start" BackgroundColor="{StaticResource Accent}" Orientation="Horizontal">
+                <Label Text="Time :"
+                       FontSize="Micro"
+                       Margin="10,5,0,5"/>
+                <Label Text="{Binding Item.Time}"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       Margin="5,5,10,5"/>
+            </StackLayout>
+
+            <Grid Padding="15" ColumnSpacing="20" Grid.Row="1" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Seed And Hash" FontSize="Medium" Grid.Row="0" Grid.ColumnSpan="3"/>
+
+                <Label Text="Server Seed" FontAttributes="Bold" LineBreakMode="NoWrap" Grid.Row="1" Grid.Column="0"/>
+                <Label Text=":" LineBreakMode="NoWrap" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="{Binding Item.ServerSeed}" FontSize="Small" Grid.Row="1" Grid.Column="2"/>
+
+                <Label Text="Server Hash" FontAttributes="Bold" LineBreakMode="NoWrap" Grid.Row="2" Grid.Column="0"/>
+                <Label Text=":" LineBreakMode="NoWrap" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="{Binding Item.ServerHash}" FontSize="Small" Grid.Row="2" Grid.Column="2"/>
+                
+                <Label Text="Client Seed" FontAttributes="Bold" LineBreakMode="NoWrap" Grid.Row="3" Grid.Column="0"/>
+                <Label Text=":" LineBreakMode="NoWrap" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="{Binding Item.ClientSeed}" FontSize="Small" Grid.Row="3" Grid.Column="2"/>
+                
+            </Grid>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

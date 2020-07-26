@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dice_Bot.Views.Strategy"
+             xmlns:vm="clr-namespace:Dice_Bot.ViewModels;"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="ToolbarItem_Clicked_1"/>
+        <ToolbarItem Text="Help" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Editor FontSize="Small" Text="{Binding strategy}" Margin="5" BackgroundColor="#90ffffff" TextChanged="Editor_TextChanged"/>
+    </ContentPage.Content>
+</ContentPage>

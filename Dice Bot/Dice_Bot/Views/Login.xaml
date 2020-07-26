@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dice_Bot.Views.Login"
+             Title="Login">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0" >
+                <StackLayout Spacing="20" Padding="15">
+                    <!--<Label Text="Site" FontSize="Medium" />-->
+                    <Picker Title="Select Site" x:Name="site" SelectedIndex="{Binding loginItem.Site}" SelectedIndexChanged="_SelectedIndexChanged"/>
+                    <Switch IsToggled="{Binding loginItem.UseCurrencies}" IsVisible="False"/>
+                    <!--<Label Text="Currencies" FontSize="Medium" IsVisible="{Binding loginItem.UseCurrencies}"/>-->
+                    <Picker Title="Select Currencies" x:Name="siteCurrencies" IsVisible="{Binding loginItem.UseCurrencies}" SelectedIndex="{Binding loginItem.Currencies}"/>
+                    <!--<Label Text="Username" FontSize="Medium" />-->
+                    <Entry Placeholder="{Binding loginItem.LoginAs}" Text="{Binding loginItem.Username}" FontSize="Small" />
+                    <!--<Label Text="Password" FontSize="Medium"/>-->
+                    <Entry Placeholder="Password" Text="{Binding loginItem.Password}" FontSize="Small" IsPassword="True"/>
+                    <!--<Label Text="2FA Code" FontSize="Medium" />-->
+                    <Entry Placeholder="2FA Code" Text="{Binding loginItem.FACode}" FontSize="Small" />
+                    <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">-->
+                        <Button Margin="0,10,0,0"
+                            Text="Login"
+                            Clicked="Login_Clicked"
+                            x:Name="login"/>
+                        <!--<Button Margin="0,10,0,0"
+                            Text="Register"
+                            Clicked="Login_Clicked"/>
+                    </StackLayout>-->
+                </StackLayout>
+            </ScrollView>
+            <AbsoluteLayout IsVisible="{Binding loginItem.IsLogining}" BackgroundColor="#90ffffff">
+                <ActivityIndicator AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               IsRunning="{Binding loginItem.IsLoading}"
+                               IsVisible="{Binding loginItem.IsLoading}" />
+                <StackLayout IsVisible="{Binding loginItem.IsMessage}"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                             BackgroundColor="{StaticResource Key=LightBackgroundColor}">
+                    <Label Text="{Binding loginItem.Message}" FontSize="Large" Margin="10,20,10,0"/>
+                    <Button Text="Got it"
+                            VerticalOptions="End"
+                            HorizontalOptions="End"
+                            Margin="0,40,10,10"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            Clicked="Button_Clicked"/>
+                </StackLayout>
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

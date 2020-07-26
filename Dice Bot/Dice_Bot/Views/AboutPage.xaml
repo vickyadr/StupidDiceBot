@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dice_Bot.Views.AboutPage"
+             xmlns:vm="clr-namespace:Dice_Bot.ViewModels;"
+             Title="{Binding Title}">
+  <ContentPage.BindingContext>
+    <vm:AboutViewModel />
+  </ContentPage.BindingContext>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+      <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" Padding="20,10,20,10">
+                        <Label FontSize="Large">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Stupid DiceBot" FontAttributes="Bold" FontSize="Large"/>
+                                        <Span Text=" "/>
+                                        <Span Text="0.9.6" ForegroundColor="{StaticResource LightTextColor}"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Margin="10,0,10,0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Hello i'm dice bot app, what can i do for you is nothing because i'm a stupid bot so teach me with your best strategies maybe i can learn." FontSize="Small" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </ContentView>
+      </StackLayout>
+    </StackLayout>
+    <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,0" Spacing="10">
+                <!--<Label Text="This app is free, if you buying this app so it must be fake ones and maybe it have dangerous software build in."/>
+                <Label Text="This app only uploaded on GooglePlay and arhives of older version can be found on our FansPage."/>
+                <Label Text="For more information about this application please visit our official FansPage via button below."/>
+                <Label Text="FansPage : https://fb.com/Stupid-Dice-Bot-204719566750191" FontAttributes="Bold"/>
+                <Label Text=" "/>
+                <Label Text=" "/>
+                <Button Text="Visit FansPage Now" Command="{Binding OpenWebCommand}"/>-->
+                <Label Text="Donation address to keep app growth and no ads." FontAttributes="Bold" />
+                
+                <Label Text="BitCoin   : "/>
+                <Entry Text="1ponY6k5ZbK8mpP49k57eLB3K7oKvwD5xJ" Placeholder="1ponY6k5ZbK8mpP49k57eLB3K7oKvwD5xJ"/>
+                
+                <Label Text="Ethereum   : " />
+                <Entry Text="0x56AC2134df9357aaD3FF2C6d9B42Cb930708372E" Placeholder="0x56AC2134df9357aaD3FF2C6d9B42Cb930708372E"/>
+                
+                <Label Text="DogeCoin  : " />
+                <Entry Text="D5tcZmeQrFH5uBQnMMmA9fUsRpSHKF25iq" Placeholder="D5tcZmeQrFH5uBQnMMmA9fUsRpSHKF25iq"/>
+                
+                <Label Text="LiteCoin  : " />
+                <Entry Text="LNMrEtv1XmpUX1tjbYpiG2dzvNwsuqdC5M" Placeholder="LNMrEtv1XmpUX1tjbYpiG2dzvNwsuqdC5M"/>
+                
+                <Label Text="Stellar  : " />
+                <Entry Text="GAFUIACR5PTLS74NWJK3RW4ZW7QEJNMRSYK5C2M57BPFI3YOGQMRGJDN" Placeholder="GAFUIACR5PTLS74NWJK3RW4ZW7QEJNMRSYK5C2M57BPFI3YOGQMRGJDN"/>
+            </StackLayout>
+        </ScrollView>
+    <StackLayout BackgroundColor="{StaticResource LightBackgroundColor}" VerticalOptions="End" Grid.Row="2" Padding="20,0,20,20">
+             <Label Text="16 Px Labs - 2018" FontAttributes="Bold" FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+    </StackLayout>
+  </Grid>
+</ContentPage>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dice_Bot.Views.Logs"
+              Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+  <ContentPage.ToolbarItems>
+  	<ToolbarItem Text="Clear" Clicked="Clear_Clicked" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <StackLayout>
+      <ListView x:Name="ItemsListView"
+				ItemsSource="{Binding Items}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+				ItemSelected="OnItemSelected"
+                Margin="10,0,10,0">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="ID :"
+                                       FontSize="Default"/>
+                                        <Label Text="{Binding BetId}"
+                                       FontSize="Default"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Bet :"
+                                       FontSize="Default"/>
+                                        <Label Text="{Binding Amount}"
+                                       FontSize="Default"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Chance}"
+                                       FontSize="Medium"/>
+                                        <Label Text="%"
+                                       FontSize="Medium"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                    <Label Text="{Binding Profit}"
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Large"
+                                           TextColor="Lime"
+                                           IsVisible="{Binding IsWin}"/>
+                                    <Label Text="{Binding Profit}"
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Large"
+                                           TextColor="Red"
+                                           IsVisible="{Binding IsLose}"/>
+                                </StackLayout>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout> 
+  </ContentPage.Content>
+</ContentPage>
